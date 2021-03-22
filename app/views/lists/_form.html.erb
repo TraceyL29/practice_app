@@ -1,0 +1,24 @@
+<% if @list.errors.any? %>
+<h2>The following prevented the list from being saved</h2>
+<ul>
+<% @list.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+<% end %>
+<%= form_with(model: @list, local: true) do |f| %>
+<p>
+<%= f.label :title %>
+<%= f.text_field :title %>
+</p>
+<p>
+<%= f.label :description %>
+<%= f.text_field :description %>
+</p>
+<p>
+<%= f.label :student_id %>
+<%= f.text_field :student_id %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
