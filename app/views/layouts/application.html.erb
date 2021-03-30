@@ -8,9 +8,17 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <body class="d-flex flex-column">
+    <header>
+      <%= render 'layouts/navigationbar'%>
+    </header>
+    <div id="page-content">
+      <div class="container">
+        <%= render 'layouts/messages'%>
+        <%= yield %>
+      </div>
+    </div>
+     <%= render 'layouts/footer'%>
 
-  <body>
-    <%= render 'layouts/messages' %>
-    <%= yield %>
   </body>
 </html>

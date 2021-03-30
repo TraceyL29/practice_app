@@ -1,24 +1,33 @@
-<% if @list.errors.any? %>
-<h2>The following prevented the list from being saved</h2>
-<ul>
-<% @list.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-<% end %>
-<% end %>
-<%= form_with(model: @list, local: true) do |f| %>
-<p>
-<%= f.label :title %>
-<%= f.text_field :title %>
-</p>
-<p>
-<%= f.label :description %>
-<%= f.text_field :description %>
-</p>
-<p>
-<%= f.label :student_id %>
-<%= f.text_field :student_id %>
-</p>
-<p>
-  <%= f.submit %>
-</p>
-<% end %>
+<div class="container">
+<%= render 'shared/errormessages'%>
+  <div class="row justify-content-center">
+    <div class="col-10">
+    <%= form_with(model: @list,class:"shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
+     <div class="form-group row">
+    <%= f.label :title, class: "col-sm-2 col-form-label text-light"%>
+    <div class="col-sm-10">
+    <%= f.text_field :title, class: "form-control shadow rounded", placeholder: 'Title'%>
+      </div>
+      </div>
+      <div class="form-group row">
+    <%= f.label :description, class: "col-sm-2 col-form-label text-light"%>
+    <div class="col-sm-10">
+    <%= f.text_area :description, rows: 5, class: "form-control shadow rounded", placeholder: 'Description'%>
+      </div>
+      </div>
+      <div class="form-group row">
+    <%= f.label :student_id, class: "col-sm-2 col-form-label text-light"%>
+    <div class="col-sm-10">
+    <%= f.text_field :student_id, class: "form-control shadow rounded", placeholder: 'StudentID'%>
+      </div>
+      </div>
+    <div class="form-group row justify-content-md-center">
+      <%= f.submit class: "btn btn-outline-light btn-lg"%>
+    </div>
+    <% end %>
+    <div class="form-group row justify-content-md-center">
+      <%= link_to '[Return to the list]', lists_path, class: 'text-info'%>
+    </div>
+  </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
   def index
-    @list= List.all
+    @list= List.all.order(id: :desc)
   end
 
   def show
