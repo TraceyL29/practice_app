@@ -14,6 +14,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(params.require(:list).permit(:student_id, :title, :description))
+    @list.student = Student.first
     if @list.save
       flash[:notice]="successfully saved"
       redirect_to lists_path(@list)
