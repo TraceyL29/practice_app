@@ -5,7 +5,7 @@ class Student < ApplicationRecord
                    length: {minimum: 3, maximum: 25}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates :email, presence: true,
-                    length: {maximum: 105 },
+                    length: {maximum: 105},
                     format: {with: VALID_EMAIL_REGEX}
   has_many :lists
   has_secure_password
