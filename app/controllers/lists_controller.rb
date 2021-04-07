@@ -28,7 +28,7 @@ class ListsController < ApplicationController
   end
 
   def update
-    if @list.update(params.require(:list).permit(:student_id, :title, :description))
+    if @list.update(list_params)
       flash[:notice]="successfully"
       redirect_to list_path(@list)
     else
