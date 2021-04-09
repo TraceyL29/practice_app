@@ -5,11 +5,13 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
+
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
+    @list= @student.lists
   end
 
   # GET /students/new
@@ -62,7 +64,7 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
+      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.'}
       format.json { head :no_content }
     end
   end

@@ -1,0 +1,4 @@
+  <h2 class="text-center mt-4"><%= @student.name%> profile</h2>
+  <%= gravatar_for @student, size: 200 %>
+  <h3 class="text-center mt-4">Articles</h3>
+  <%= render "lists/lists"%>

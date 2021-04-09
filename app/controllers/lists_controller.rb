@@ -2,6 +2,7 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
   def index
     @list= List.all.order(id: :desc)
+    
   end
 
   def show
@@ -50,6 +51,6 @@ class ListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def list_params
-      params.require(:list).permit(:Student, :title, :description)
+      params.require(:list).permit(:Student, :title, :description, :student_id)
     end
 end
